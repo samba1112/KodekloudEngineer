@@ -1,0 +1,26 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: volume-share-xfusion #change it
+spec:
+  containers:
+  - image: fedora:latest #change it 
+    name:  volume-container-xfussion-1 #change
+    command: [ "/bin/bash"]
+    args: ["-c", "sleep 10000"]
+    volumeMounts:
+    - name: volume-share # change
+      mountPath: /tmp/blog #change  
+  - image: fedora:latest #change it 
+    name:  volume-container-xfussion-2 #change
+    command: [ "/bin/bash"]
+    args: ["-c", "sleep 10000"]
+    volumeMounts:
+    - name: volume-share # change
+      mountPath: /tmp/demo #change  
+  volumes:
+  - name: volume-share #change
+    emptyDir: { }
+
+# kubectl exec -it two-containers -c first -- /bin/bash

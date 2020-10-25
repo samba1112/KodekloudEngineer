@@ -52,3 +52,6 @@ spec:
   - name: storage-devops #change
     persistentVolumeClaim:
         claimName:  pvc-devops #change same name as persistent volume claim
+
+
+

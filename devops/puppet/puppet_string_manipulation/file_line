@@ -1,0 +1,16 @@
+class fileline{
+  file_line { 'replace line':    path => '/opt/devops/games.txt',
+    match   => "Welcome to Nautilus Industries!", 
+    line => "Welcome to xFusionCorp Industries!",
+             
+  } 
+
+}
+
+
+node 'stapp02.stratos.xfusioncorp.com'{
+    include fileline
+}
+
+
+node 'default' {}
